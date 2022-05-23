@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{Ceballos2015}
+Ceballos G, Ehrlich PR, Barnosky AD, Garc{\'{\i}}a A, Pringle RM, Palmer TM.
+\newblock Accelerated modern human{\textendash}induced species losses: Entering
+  the sixth mass extinction.
+\newblock Science Advances. 2015;1(5).
+\newblock doi:{10.1126/sciadv.1400253}.
+
+\bibitem{Johnson2017}
+Johnson CN, Balmford A, Brook BW, Buettel JC, Galetti M, Guangchun L, et~al.
+\newblock Biodiversity losses and conservation responses in the Anthropocene.
+\newblock Science. 2017;356(6335):270--275.
+\newblock doi:{10.1126/science.aam9317}.
+
+\bibitem{Engel2021}
+Engel MS, Cer{\'{\i}}aco LMP, Daniel GM, Dellap{\'{e}} PM, L\"{o}bl I, Marinov
+  M, et~al.
+\newblock The taxonomic impediment: a shortage of taxonomists, not the lack of
+  technical approaches.
+\newblock Zoological Journal of the Linnean Society. 2021;193(2):381--387.
+\newblock doi:{10.1093/zoolinnean/zlab072}.
+
+\bibitem{Silvertown2009}
+Silvertown J.
+\newblock A new dawn for citizen science.
+\newblock Trends in Ecology {\&} Evolution. 2009;24(9):467--471.
+\newblock doi:{10.1016/j.tree.2009.03.017}.
+
+\bibitem{GBIFhomepage}
+{GBIF org}. GBIF homepage; 2022.
+\newblock Available from: \url{https://www.gbif.org}.
+
+\bibitem{GBIF_data_taxonomy}
+{GBIF org}. Taxonomic distribution of occurrences; 2022.
+\newblock Available from:
+  \url{https://www.gbif.org/occurrence/taxonomy?occurrence_status=present}.
+
+\bibitem{Troudet2017}
+Troudet J, Grandcolas P, Blin A, Vignes-Lebbe R, Legendre F.
+\newblock Taxonomic bias in biodiversity data and societal preferences.
+\newblock Scientific Reports. 2017;7(1).
+\newblock doi:{10.1038/s41598-017-09084-6}.
+
+\bibitem{Dobson2020}
+Dobson ADM, Milner-Gulland EJ, Aebischer NJ, Beale CM, Brozovic R, Coals P,
+  et~al.
+\newblock Making Messy Data Work for Conservation.
+\newblock One Earth. 2020;2(5):455--465.
+\newblock doi:{10.1016/j.oneear.2020.04.012}.
+
+\bibitem{Ebach2011}
+Ebach MC, Valdecasas AG, Wheeler QD.
+\newblock Impediments to taxonomy and users of taxonomy: accessibility and
+  impact evaluation.
+\newblock Cladistics. 2011;27(5):550--557.
+\newblock doi:{10.1111/j.1096-0031.2011.00348.x}.
+
+\bibitem{Crall2011}
+Crall AW, Newman GJ, Stohlgren TJ, Holfelder KA, Graham J, Waller DM.
+\newblock Assessing citizen science data quality: an invasive species case
+  study.
+\newblock Conservation Letters. 2011;4(6):433--442.
+\newblock doi:{10.1111/j.1755-263x.2011.00196.x}.
+
+\bibitem{Burgess2017}
+Burgess HK, DeBey LB, Froehlich HE, Schmidt N, Theobald EJ, Ettinger AK, et~al.
+\newblock The science of citizen science: Exploring barriers to use as a
+  primary research tool.
+\newblock Biological Conservation. 2017;208:113--120.
+\newblock doi:{10.1016/j.biocon.2016.05.014}.
+
+\bibitem{Callaghan2020}
+Callaghan CT, Poore AGB, Mesaglio T, Moles AT, Nakagawa S, Roberts C, et~al.
+\newblock Three Frontiers for the Future of Biodiversity Research Using Citizen
+  Science Data.
+\newblock {BioScience}. 2020;doi:{10.1093/biosci/biaa131}.
+
+\bibitem{Bayraktarov2019}
+Bayraktarov E, Ehmke G, O{\textquotesingle}Connor J, Burns EL, Nguyen HA, McRae
+  L, et~al.
+\newblock Do Big Unstructured Biodiversity Data Mean More Knowledge?
+\newblock Frontiers in Ecology and Evolution. 2019;6.
+\newblock doi:{10.3389/fevo.2018.00239}.
+
+\bibitem{Boakes2016}
+Boakes EH, Gliozzo G, Seymour V, Harvey M, Smith C, Roy DB, et~al.
+\newblock Patterns of contribution to citizen science biodiversity projects
+  increase understanding of volunteers' recording behaviour.
+\newblock Scientific Reports. 2016;6(1).
+\newblock doi:{10.1038/srep33051}.
+
+\bibitem{Dallwitz1980}
+Dallwitz MJ.
+\newblock A general system for coding taxonomic descriptions.
+\newblock {TAXON}. 1980;29(1):41--46.
+\newblock doi:{10.2307/1219595}.
+
+\bibitem{Lucid}
+{Identic Pty {Ltd }}. Lucidcentral.org; 2022.
+\newblock Available from: \url{https://www.lucidcentral.org}.
+
+\bibitem{Pokemon_wiki}
+{Fandom Community}. Pokémon GO Wiki; 2022.
+\newblock Available from:
+  \url{https://pokemongo.fandom.com/wiki/List_of_Pok%C3%A9mon}.
+
+\bibitem{JSON}
+Crockford D, Morningstar C.
+\newblock Standard ECMA-404 The JSON Data Interchange Syntax; 2017.
+\newblock Available from: \url{https://doi.org/10.13140/RG.2.2.28181.14560}.
+
+\bibitem{JSON_schema}
+Wright A, Andrews H, Hutton B, Dennis G. JSON Schema: A Media Type for
+  Describing JSON Documents; 2022.
+\newblock Available from:
+  \url{https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00}.
+
+\end{thebibliography}

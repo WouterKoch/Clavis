@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Manuscript.aux
+The style file: plos2015.bst
+Database file #1: Clavis.bib
+Warning--entry type for "GBIFhomepage" isn't style-file defined
+--line 69 of file Clavis.bib
+Warning--entry type for "GBIF_data_taxonomy" isn't style-file defined
+--line 77 of file Clavis.bib
+Warning--entry type for "Lucid" isn't style-file defined
+--line 85 of file Clavis.bib
+Warning--entry type for "JSON_schema" isn't style-file defined
+--line 103 of file Clavis.bib
+Warning--entry type for "Pokemon_wiki" isn't style-file defined
+--line 127 of file Clavis.bib
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 19 entries,
+            3058 wiz_defined-function locations,
+            779 strings with 11496 characters,
+and the built_in function-call counts, 57425 in all, are:
+= -- 6976
+> -- 324
+< -- 0
++ -- 217
+- -- 81
+* -- 5455
+:= -- 6330
+add.period$ -- 77
+call.type$ -- 19
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 2923
+empty$ -- 5767
+format.name$ -- 94
+if$ -- 13131
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 177
+newline$ -- 105
+num.names$ -- 19
+pop$ -- 276
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 312
+stack$ -- 0
+substring$ -- 14267
+swap$ -- 411
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 179
+width$ -- 21
+write$ -- 225
+(There were 5 warnings)
