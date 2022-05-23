@@ -438,14 +438,14 @@
       "mediaElement": {
         "file": [
           {
-            "url": "https://artsdatabanken.no/pointy_100.png",
+            "url": "https://github.com/WouterKoch/Clavis/raw/main/Keys/Images/pointy_100.png",
             "width": 100,
             "height": 100,
             "license": "https://creativecommons.org/licenses/by/4.0/",
             "creator": "person:wouterkoch"
           },
           {
-            "url": "https://artsdatabanken.no/pointy_250.png",
+            "url": "https://github.com/WouterKoch/Clavis/raw/main/Keys/Images/pointy_250.png",
             "width": 250,
             "height": 250,
             "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -459,14 +459,14 @@
       "mediaElement": {
         "file": [
           {
-            "url": "https://artsdatabanken.no/lobed_100.png",
+            "url": "https://github.com/WouterKoch/Clavis/raw/main/Keys/Images/lobed_100.png",
             "width": 100,
             "height": 100,
             "license": "https://creativecommons.org/licenses/by/4.0/",
             "creator": "person:wouterkoch"
           },
           {
-            "url": "https://artsdatabanken.no/lobed_250.png",
+            "url": "https://github.com/WouterKoch/Clavis/raw/main/Keys/Images/lobed_250.png",
             "width": 250,
             "height": 250,
             "license": "https://creativecommons.org/licenses/by/4.0/",
