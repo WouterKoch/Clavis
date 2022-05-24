@@ -84,6 +84,7 @@ S1 Appendix. Clavis JSON-schema
 \end{flushleft}
 \linenumbers
 \begin{verbatim}
+
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Clavis identification key schema",
@@ -164,26 +165,10 @@ key.",
         "https://doi.org/10.1126/science.1251554"
       ]
     },
-    "regionName": {
-      "description": "The name of the region for which the key is valid
-(e.g. covers all subtaxa).",
-      "comment": "Accepts array for multilingual support.",
-      "$ref": "#/definitions/localizedString",
-      "examples": [
-        "Norway",
-        "Europe",
-        "Trøndelag",
-        [
-          "Norge",
-          "Norway"
-        ]
-      ]
-    },
     "geography": {
       "description": "The region for which the key is valid (e.g. covers
-all subtaxa), represented as the coordinates array of a GeoJSON
-MultiPolygon.",
-      "$ref": "#/definitions/multiPolygon"
+all subtaxa), represented as a geography object.",
+      "$ref": "#/definitions/geography"
     },
     "primaryContact": {
       "description": "The organization- or person-id that is the main
@@ -226,7 +211,7 @@ contact point for the key.",
       ]
     },
     "publisher": {
-      "description": "The id(s) of the publising institutions of the
+      "description": "The id(s) of the publishing institutions of the
 key.",
       "oneOf": [
         {
@@ -324,9 +309,8 @@ characters, so that the user can be warned, helped, etc.",
     "taxa": {
       "description": "Taxa (e.g. species) the key can resolve to. Do not
 have to be exclusively taxonomic units.",
-      "comment": "Taxa to which the key can resolve. Either the taxa
-directly or their children. SubTaxonomic taxa (such as morphs, genders,
-life stages) should be presented through their parent only.",
+      "comment": "Taxa to which the key can resolve (either the taxa
+directly or their children).",
       "type": "array",
       "items": {
         "$ref": "#/definitions/taxon"
@@ -372,6 +356,7 @@ key or persons, such as employers and publishers.",
       }
     }
   },
+  "additionalProperties": false,
   "definitions": {
     "localizedString": {
       "description": "Language-dependent string or object of strings,
@@ -440,7 +425,8 @@ each language).",
             }
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "url": {
       "description": "String formed as a url, or an external
@@ -457,55 +443,55 @@ resource.",
     },
     "taxonID": {
       "description": "String used as an internal ID for a taxon.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^taxon:[a-z0-9_]+$"
     },
     "characterID": {
       "description": "String used as an internal ID for a character.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^character:[a-z0-9_]+$"
     },
     "stateID": {
       "description": "String used as an internal ID for a state.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^state:[a-z0-9_]+$"
     },
     "personID": {
       "description": "String used as an internal ID for a person.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^person:[a-z0-9_]+$"
     },
     "organizationID": {
       "description": "String used as an internal ID for an organization.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^organization:[a-z0-9_]+$"
     },
     "serviceID": {
       "description": "String used as an internal ID for a service.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^service:[a-z0-9_]+$"
     },
     "statementID": {
       "description": "String used as an internal ID for a statement.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^statement:[a-z0-9_]+$"
     },
     "userRequirementID": {
       "description": "String used as an internal ID for a user
-requirement. Lowercase alphanumerical and underscores are allowed.",
+requirement. Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^requirement:[a-z0-9_]+$"
     },
     "mediaID": {
       "description": "String used as an internal ID for a media element.
-Lowercase alphanumerical and underscores are allowed.",
+Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^media:[a-z0-9_]+$"
     },
@@ -586,8 +572,8 @@ file",
           ]
         },
         "publisher": {
-          "description": "The id(s) of the publising institutions of the
-media file.",
+          "description": "The id(s) of the publishing institutions of
+the media file.",
           "oneOf": [
             {
               "$ref": "#/definitions/organizationID"
@@ -608,7 +594,8 @@ file falls.",
             "https://creativecommons.org/licenses/by/4.0/"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "mediaElement": {
       "description": "A media element (collection of various formats of
@@ -630,7 +617,8 @@ object.",
             }
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "multiPolygon": {
       "description": "The coordinates array of a GeoJSON
@@ -649,6 +637,38 @@ MultiPolygon.",
         }
       }
     },
+    "geography": {
+      "description": "A geographic element (name, polygon, and/or
+external service).",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the area(s).",
+          "comment": "Accepts array for multilingual support.",
+          "$ref": "#/definitions/localizedString",
+          "examples": [
+            "Norway",
+            "Europe",
+            "Trøndelag",
+            [
+              "Norge",
+              "Norway"
+            ]
+          ]
+        },
+        "polygon": {
+          "description": "The geographical area(s), represented as the
+coordinates array of a GeoJSON MultiPolygon.",
+          "$ref": "#/definitions/multiPolygon"
+        },
+        "service": {
+          "description": "An url or external service that returns
+geographical information.",
+          "$ref": "#/definitions/url"
+        }
+      },
+      "additionalProperties": false
+    },
     "externalResource": {
       "description": "A resource managed elsewhere.",
       "type": "object",
@@ -663,7 +683,8 @@ defined.",
 externalService.",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "externalService": {
       "description": "Service used by the key, for media files, taxonomy
@@ -681,6 +702,10 @@ and/or nomenclature, species distributions, etc.",
           "description": "Name of the service.",
           "type": "string"
         },
+        "description": {
+          "description": "Description of the service.",
+          "type": "string"
+        },
         "provider": {
           "description": "Provider of the service.",
           "type": "string"
@@ -689,7 +714,8 @@ and/or nomenclature, species distributions, etc.",
           "description": "Url for the service documentation.",
           "$ref": "#/definitions/url"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "person": {
       "type": "object",
@@ -737,7 +763,8 @@ with.",
             }
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "organization": {
       "type": "object",
@@ -770,7 +797,8 @@ for the organization.",
 organization, such as a logo.",
           "$ref": "#/definitions/mediaID"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "userRequirement": {
       "type": "object",
@@ -815,7 +843,8 @@ the requirements to the user.",
           "comment": "Accepts object for multilingual support.",
           "$ref": "#/definitions/mediaID"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "taxon": {
       "type": "object",
@@ -953,21 +982,18 @@ ancestors overrides this by being specified as an endpoint.",
           }
         },
         "externalReference": {
-          "description": "Reference to a taxon at a provider, as an
-object wiht a provider id and a taxon id at that provider.",
-          "comment": "Accepts object for multilingual support.",
+          "description": "Reference to a taxon at one or more providers,
+each as an object with a provider id and a taxon id at that provider.",
+          "comment": "Accepts an array for multiple sources. Each
+element accepts an object for multilingual support.",
           "oneOf": [
             {
-              "$ref": "#/definitions/externalResource"
+              "$ref": "#/definitions/localizedUrl"
             },
             {
-              "type": "object",
-              "propertyNames": {
-                "pattern": "^[a-z]{2}$"
-              },
-              "properties": {},
-              "additionalProperties": {
-                "$ref": "#/definitions/externalResource"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/localizedUrl"
               }
             }
           ]
@@ -981,15 +1007,11 @@ identify to a lower rank than the current key can.",
         },
         "geography": {
           "description": "The area(s) in which the taxon occurs,
-represented as the coordinates array of a GeoJSON MultiPolygon.",
-          "$ref": "#/definitions/multiPolygon"
-        },
-        "geographyService": {
-          "description": "An url or external service that returns
-distribution information for this taxon.",
-          "$ref": "#/definitions/url"
+represented as a geography object.",
+          "$ref": "#/definitions/geography"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "character": {
       "type": "object",
@@ -1048,7 +1070,7 @@ the character.",
         },
         "type": {
           "description": "Type of the character (exclusive when states
-are catagorical and mutually exclusive, non-exclusive when these are
+are categorical and mutually exclusive, non-exclusive when these are
 non-exclusive, or numerical when the state is numerical).",
           "comment": "Default is exclusive (if not specified).",
           "type": "string",
@@ -1088,7 +1110,8 @@ true (either answered or all alternatives ruled out). Can use !, &&, ||,
             }
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "state": {
       "description": "The value a character can have.",
@@ -1117,7 +1140,7 @@ true (either answered or all alternatives ruled out). Can use !, &&, ||,
         },
         "title": {
           "description": "Content of the state.",
-          "comment": "Only to be used for catergorical characters.
+          "comment": "Only to be used for categorical characters.
 Accepts object for multilingual support.",
           "$ref": "#/definitions/localizedString"
         },
@@ -1187,7 +1210,8 @@ object for multilingual support.",
             "kg"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "statement": {
       "description": "A fact connecting a taxon and a character through
@@ -1195,8 +1219,8 @@ a certain value.",
       "type": "object",
       "required": [
         "id",
-        "taxonId",
-        "characterId",
+        "taxon",
+        "character",
         "value",
         "frequency"
       ],
@@ -1241,14 +1265,8 @@ value for this character.",
         },
         "geography": {
           "description": "The area(s) in which the taxon can have this
-property, represented as the coordinates array of a GeoJSON
-MultiPolygon.",
-          "$ref": "#/definitions/multiPolygon"
-        },
-        "geographyService": {
-          "description": "An url or external service that returns
-distribution information for this property.",
-          "$ref": "#/definitions/url"
+property, represented as a geography object.",
+          "$ref": "#/definitions/geography"
         },
         "media": {
           "description": "Illustration(s) of this particular taxon
@@ -1285,7 +1303,8 @@ the taxon having this property.",
           "comment": "Accepts array for multilingual support.",
           "$ref": "#/definitions/localizedUrl"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

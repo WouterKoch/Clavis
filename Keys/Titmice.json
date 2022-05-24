@@ -1,94 +1,96 @@
 {
-   "$schema": "https://raw.githubusercontent.com/Artsdatabanken/Clavis/60090011e4efed657f41cced3366b2b57d6cff3b/Clavis.json",
+   "$schema": "https://raw.githubusercontent.com/WouterKoch/Clavis/main/Schema/Clavis.json",
    "title": "A key to titmice in Norway",
    "language": "en",
    "license": "https://creativecommons.org/licenses/by/4.0/",
    "creator": "person:wouterkoch",
    "lastModified": "2022-03-19 21:41:00",
    "identifier": "9be11d7e-c147-400a-899e-b3d5e4bcc6a1",
-   "regionName": "Norway",
-   "geography": [
-      [
+   "geography": {
+      "name": "Norway",
+      "polygon": [
          [
             [
-               33.22265625,
-               69.56522590149099
-            ],
-            [
-               29.267578125,
-               71.15939141681443
-            ],
-            [
-               23.5546875,
-               71.28669893545877
-            ],
-            [
-               17.2265625,
-               69.97549253616164
-            ],
-            [
-               12.392578125,
-               68.366801093914
-            ],
-            [
-               11.2939453125,
-               65.91062334197893
-            ],
-            [
-               3.8671874999999996,
-               62.103882522897855
-            ],
-            [
-               4.7021484375,
-               58.516651799363785
-            ],
-            [
-               7.119140625,
-               57.70414723434193
-            ],
-            [
-               11.953125,
-               58.83649009392136
-            ],
-            [
-               13.3154296875,
-               61.39671887310411
-            ],
-            [
-               12.8759765625,
-               63.6267446447533
-            ],
-            [
-               14.94140625,
-               64.07219957867282
-            ],
-            [
-               15.2490234375,
-               66.05371622067922
-            ],
-            [
-               18.852539062499996,
-               68.02402198693447
-            ],
-            [
-               25.048828125,
-               68.51214331858073
-            ],
-            [
-               26.894531249999996,
-               69.54987728327795
-            ],
-            [
-               29.003906249999996,
-               68.8159271333607
-            ],
-            [
-               33.22265625,
-               69.56522590149099
+               [
+                  33.22265625,
+                  69.56522590149099
+               ],
+               [
+                  29.267578125,
+                  71.15939141681443
+               ],
+               [
+                  23.5546875,
+                  71.28669893545877
+               ],
+               [
+                  17.2265625,
+                  69.97549253616164
+               ],
+               [
+                  12.392578125,
+                  68.366801093914
+               ],
+               [
+                  11.2939453125,
+                  65.91062334197893
+               ],
+               [
+                  3.8671874999999996,
+                  62.103882522897855
+               ],
+               [
+                  4.7021484375,
+                  58.516651799363785
+               ],
+               [
+                  7.119140625,
+                  57.70414723434193
+               ],
+               [
+                  11.953125,
+                  58.83649009392136
+               ],
+               [
+                  13.3154296875,
+                  61.39671887310411
+               ],
+               [
+                  12.8759765625,
+                  63.6267446447533
+               ],
+               [
+                  14.94140625,
+                  64.07219957867282
+               ],
+               [
+                  15.2490234375,
+                  66.05371622067922
+               ],
+               [
+                  18.852539062499996,
+                  68.02402198693447
+               ],
+               [
+                  25.048828125,
+                  68.51214331858073
+               ],
+               [
+                  26.894531249999996,
+                  69.54987728327795
+               ],
+               [
+                  29.003906249999996,
+                  68.8159271333607
+               ],
+               [
+                  33.22265625,
+                  69.56522590149099
+               ]
             ]
          ]
       ]
-   ],
+   },
    "persons": [
       {
          "id": "person:wouterkoch",
@@ -116,7 +118,7 @@
          "scientificName": "Paridae",
          "rank": "family",
          "vernacularName": "titmice",
-         "externalResource": {
+         "externalReference": {
             "serviceId": "service:nbic_taxa",
             "externalId": "4362"
          },
@@ -125,7 +127,7 @@
                "id": "taxon:cyanistes",
                "scientificName": "Cyanistes",
                "rank": "genus",
-               "externalResource": {
+               "externalReference": {
                   "serviceId": "service:nbic_taxa",
                   "externalId": "4364"
                },
@@ -135,7 +137,7 @@
                      "scientificName": "Cyanistes caeruleus",
                      "vernacularName": "blue tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4365"
                      }
@@ -146,7 +148,7 @@
                "id": "taxon:lophophanes",
                "scientificName": "Lophophanes",
                "rank": "genus",
-               "externalResource": {
+               "externalReference": {
                   "serviceId": "service:nbic_taxa",
                   "externalId": "4368"
                },
@@ -156,56 +158,58 @@
                      "scientificName": "Lophophanes cristatus",
                      "vernacularName": "crested tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4369"
                      },
-                     "geoDistribution": [
-                        [
+                     "geography": {
+                        "polygon": [
                            [
                               [
-                                 11.997070312499998,
-                                 58.74540696858028
-                              ],
-                              [
-                                 13.0517578125,
-                                 59.977005492196
-                              ],
-                              [
-                                 12.8759765625,
-                                 63.31268278043484
-                              ],
-                              [
-                                 19.2041015625,
-                                 68.57644086491786
-                              ],
-                              [
-                                 13.4912109375,
-                                 68.78414378041504
-                              ],
-                              [
-                                 9.7119140625,
-                                 64.47279382008166
-                              ],
-                              [
-                                 4.21875,
-                                 62.2679226294176
-                              ],
-                              [
-                                 3.69140625,
-                                 59.40036514079251
-                              ],
-                              [
-                                 6.723632812499999,
-                                 57.70414723434193
-                              ],
-                              [
-                                 11.997070312499998,
-                                 58.74540696858028
+                                 [
+                                    11.997070312499998,
+                                    58.74540696858028
+                                 ],
+                                 [
+                                    13.0517578125,
+                                    59.977005492196
+                                 ],
+                                 [
+                                    12.8759765625,
+                                    63.31268278043484
+                                 ],
+                                 [
+                                    19.2041015625,
+                                    68.57644086491786
+                                 ],
+                                 [
+                                    13.4912109375,
+                                    68.78414378041504
+                                 ],
+                                 [
+                                    9.7119140625,
+                                    64.47279382008166
+                                 ],
+                                 [
+                                    4.21875,
+                                    62.2679226294176
+                                 ],
+                                 [
+                                    3.69140625,
+                                    59.40036514079251
+                                 ],
+                                 [
+                                    6.723632812499999,
+                                    57.70414723434193
+                                 ],
+                                 [
+                                    11.997070312499998,
+                                    58.74540696858028
+                                 ]
                               ]
                            ]
                         ]
-                     ]
+                     }
                   }
                ]
             },
@@ -213,7 +217,7 @@
                "id": "taxon:parus",
                "scientificName": "Parus",
                "rank": "genus",
-               "externalResource": {
+               "externalReference": {
                   "serviceId": "service:nbic_taxa",
                   "externalId": "4363"
                },
@@ -223,7 +227,7 @@
                      "scientificName": "Parus major",
                      "vernacularName": "great tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4372"
                      }
@@ -234,7 +238,7 @@
                "id": "taxon:periparus",
                "scientificName": "Periparus",
                "rank": "genus",
-               "externalResource": {
+               "externalReference": {
                   "serviceId": "service:nbic_taxa",
                   "externalId": "4374"
                },
@@ -244,7 +248,7 @@
                      "scientificName": "Periparus ater",
                      "vernacularName": "coal tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4375"
                      }
@@ -255,7 +259,7 @@
                "id": "taxon:poecile",
                "scientificName": "Poecile",
                "rank": "genus",
-               "externalResource": {
+               "externalReference": {
                   "serviceId": "service:nbic_taxa",
                   "externalId": "4378"
                },
@@ -265,63 +269,65 @@
                      "scientificName": "Poecile palustris",
                      "vernacularName": "marsh tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4385"
                      },
-                     "geoDistribution": [
-                        [
+                     "geography": {
+                        "polygon": [
                            [
                               [
-                                 11.997070312499998,
-                                 58.74540696858028
-                              ],
-                              [
-                                 13.0517578125,
-                                 59.977005492196
-                              ],
-                              [
-                                 12.8759765625,
-                                 63.31268278043484
-                              ],
-                              [
-                                 19.2041015625,
-                                 68.57644086491786
-                              ],
-                              [
-                                 13.4912109375,
-                                 68.78414378041504
-                              ],
-                              [
-                                 9.7119140625,
-                                 64.47279382008166
-                              ],
-                              [
-                                 4.21875,
-                                 62.2679226294176
-                              ],
-                              [
-                                 3.69140625,
-                                 59.40036514079251
-                              ],
-                              [
-                                 6.723632812499999,
-                                 57.70414723434193
-                              ],
-                              [
-                                 11.997070312499998,
-                                 58.74540696858028
+                                 [
+                                    11.997070312499998,
+                                    58.74540696858028
+                                 ],
+                                 [
+                                    13.0517578125,
+                                    59.977005492196
+                                 ],
+                                 [
+                                    12.8759765625,
+                                    63.31268278043484
+                                 ],
+                                 [
+                                    19.2041015625,
+                                    68.57644086491786
+                                 ],
+                                 [
+                                    13.4912109375,
+                                    68.78414378041504
+                                 ],
+                                 [
+                                    9.7119140625,
+                                    64.47279382008166
+                                 ],
+                                 [
+                                    4.21875,
+                                    62.2679226294176
+                                 ],
+                                 [
+                                    3.69140625,
+                                    59.40036514079251
+                                 ],
+                                 [
+                                    6.723632812499999,
+                                    57.70414723434193
+                                 ],
+                                 [
+                                    11.997070312499998,
+                                    58.74540696858028
+                                 ]
                               ]
                            ]
                         ]
-                     ]
+                     }
                   },
                   {
                      "id": "taxon:poecile_montanus",
                      "scientificName": "Poecile montanus",
                      "vernacularName": "willow tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4382"
                      }
@@ -331,7 +337,7 @@
                      "scientificName": "Poecile cinctus",
                      "vernacularName": "Siberian tit",
                      "rank": "species",
-                     "externalResource": {
+                     "externalReference": {
                         "serviceId": "service:nbic_taxa",
                         "externalId": "4379"
                      }
@@ -442,148 +448,148 @@
    "statements": [
       {
          "id": "statement:crested_tit_head",
-         "taxonId": "taxon:lophophanes_cristatus",
-         "characterId": "character:head_top",
+         "taxon": "taxon:lophophanes_cristatus",
+         "character": "character:head_top",
          "value": "state:speckled_crest",
          "frequency": 1
       },
       {
          "id": "statement:blue_tit_head",
-         "taxonId": "taxon:cyanistes_caeruleus",
-         "characterId": "character:head_top",
+         "taxon": "taxon:cyanistes_caeruleus",
+         "character": "character:head_top",
          "value": "state:blue",
          "frequency": 1
       },
       {
          "id": "statement:poecile_palustris_head",
-         "taxonId": "taxon:poecile_palustris",
-         "characterId": "character:head_top",
+         "taxon": "taxon:poecile_palustris",
+         "character": "character:head_top",
          "value": "state:black_or_dark_grey",
          "frequency": 1
       },
       {
          "id": "statement:poecile_montanus_head",
-         "taxonId": "taxon:poecile_montanus",
-         "characterId": "character:head_top",
+         "taxon": "taxon:poecile_montanus",
+         "character": "character:head_top",
          "value": "state:black_or_dark_grey",
          "frequency": 1
       },
       {
          "id": "statement:poecile_cinctus_head",
-         "taxonId": "taxon:poecile_cinctus",
-         "characterId": "character:head_top",
+         "taxon": "taxon:poecile_cinctus",
+         "character": "character:head_top",
          "value": "state:brown",
          "frequency": 1
       },
       {
          "id": "statement:great_tit_head",
-         "taxonId": "taxon:parus_major",
-         "characterId": "character:head_top",
+         "taxon": "taxon:parus_major",
+         "character": "character:head_top",
          "value": "state:black_or_dark_grey",
          "frequency": 1
       },
       {
          "id": "statement:coal_tit_head",
-         "taxonId": "taxon:periparus_ater",
-         "characterId": "character:head_top",
+         "taxon": "taxon:periparus_ater",
+         "character": "character:head_top",
          "value": "state:black_or_dark_grey",
          "frequency": 1
       },
       {
          "id": "statement:crested_tit_chest",
-         "taxonId": "taxon:lophophanes_cristatus",
-         "characterId": "character:chest_color",
+         "taxon": "taxon:lophophanes_cristatus",
+         "character": "character:chest_color",
          "value": "state:grey_brown",
          "frequency": 1
       },
       {
          "id": "statement:blue_tit_chest",
-         "taxonId": "taxon:cyanistes_caeruleus",
-         "characterId": "character:chest_color",
+         "taxon": "taxon:cyanistes_caeruleus",
+         "character": "character:chest_color",
          "value": "state:yellow",
          "frequency": 1
       },
       {
          "id": "statement:poecile_chest",
-         "taxonId": "taxon:poecile",
-         "characterId": "character:chest_color",
+         "taxon": "taxon:poecile",
+         "character": "character:chest_color",
          "value": "state:grey_brown",
          "frequency": 1
       },
       {
          "id": "statement:great_tit_chest",
-         "taxonId": "taxon:parus_major",
-         "characterId": "character:chest_color",
+         "taxon": "taxon:parus_major",
+         "character": "character:chest_color",
          "value": "state:yellow",
          "frequency": 1
       },
       {
          "id": "statement:coal_tit_chest",
-         "taxonId": "taxon:periparus_ater",
-         "characterId": "character:chest_color",
+         "taxon": "taxon:periparus_ater",
+         "character": "character:chest_color",
          "value": "state:grey_brown",
          "frequency": 1
       },
       {
          "id": "statement:crested_tit_bar",
-         "taxonId": "taxon:lophophanes_cristatus",
-         "characterId": "character:wing_bar",
+         "taxon": "taxon:lophophanes_cristatus",
+         "character": "character:wing_bar",
          "value": "state:no_wing_bar",
          "frequency": 1
       },
       {
          "id": "statement:blue_tit_bar",
-         "taxonId": "taxon:cyanistes_caeruleus",
-         "characterId": "character:wing_bar",
+         "taxon": "taxon:cyanistes_caeruleus",
+         "character": "character:wing_bar",
          "value": "state:wing_bar",
          "frequency": 1
       },
       {
          "id": "statement:poecile_bar",
-         "taxonId": "taxon:poecile",
-         "characterId": "character:wing_bar",
+         "taxon": "taxon:poecile",
+         "character": "character:wing_bar",
          "value": "state:no_wing_bar",
          "frequency": 1
       },
       {
          "id": "statement:great_tit_bar",
-         "taxonId": "taxon:parus_major",
-         "characterId": "character:wing_bar",
+         "taxon": "taxon:parus_major",
+         "character": "character:wing_bar",
          "value": "state:wing_bar",
          "frequency": 1
       },
       {
          "id": "statement:coal_tit_bar",
-         "taxonId": "taxon:periparus_ater",
-         "characterId": "character:wing_bar",
+         "taxon": "taxon:periparus_ater",
+         "character": "character:wing_bar",
          "value": "state:wing_bar",
          "frequency": 1
       },
       {
          "id": "statement:poecile_palustris_cheek_back",
-         "taxonId": "taxon:poecile_palustris",
-         "characterId": "character:black_of_cheek",
+         "taxon": "taxon:poecile_palustris",
+         "character": "character:black_of_cheek",
          "value": "state:brown_cheek_back",
          "frequency": 1
       },
       {
          "id": "statement:poecile_montanus_cheek_back",
-         "taxonId": "taxon:poecile_montanus",
-         "characterId": "character:black_of_cheek",
+         "taxon": "taxon:poecile_montanus",
+         "character": "character:black_of_cheek",
          "value": "state:white_cheek_back",
          "frequency": 1
       },
       {
          "id": "statement:poecile_palustris_wing_secondaries_color",
-         "taxonId": "taxon:poecile_palustris",
-         "characterId": "character:wing_secondaries_color",
+         "taxon": "taxon:poecile_palustris",
+         "character": "character:wing_secondaries_color",
          "value": "state:secondaries_not_pale",
          "frequency": 1
       },
       {
          "id": "statement:poecile_montanus_wing_secondaries_color",
-         "taxonId": "taxon:poecile_montanus",
-         "characterId": "character:wing_secondaries_color",
+         "taxon": "taxon:poecile_montanus",
+         "character": "character:wing_secondaries_color",
          "value": "state:secondaries_pale",
          "frequency": 1
       }
