@@ -556,6 +556,10 @@
           "description": "Name of the service.",
           "type": "string"
         },
+        "description": {
+          "description": "Description of the service.",
+          "type": "string"
+        },
         "provider": {
           "description": "Provider of the service.",
           "type": "string"
@@ -813,9 +817,19 @@
           }
         },
         "externalReference": {
-          "description": "Reference to a taxon at a provider, as an object with a provider id and a taxon id at that provider.",
-          "comment": "Accepts object for multilingual support.",
-          "$ref": "#/definitions/localizedUrl"
+          "description": "Reference to a taxon at one or more providers, each as an object with a provider id and a taxon id at that provider.",
+          "comment": "Accepts an array for multiple sources. Each element accepts an object for multilingual support.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/localizedUrl"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/localizedUrl"
+              }
+            }
+          ]
         },
         "followUp": {
           "description": "Url or reference to instance at external service for a key for this taxon, that for instance can be used to identify to a lower rank than the current key can.",
@@ -1013,8 +1027,8 @@
       "type": "object",
       "required": [
         "id",
-        "taxonId",
-        "characterId",
+        "taxon",
+        "character",
         "value",
         "frequency"
       ],
