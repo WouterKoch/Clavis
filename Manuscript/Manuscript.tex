@@ -126,7 +126,7 @@ To address this, a matrix can also be made to be sparse, meaning that not all ch
 
 The sparse matrix approach is more powerful than both the single access and the full matrix approach, in that both of the latter approaches are subsets of what the sparse matrix can represent. Still, there is much information one would ideally like to store about taxa, characters, and the relationships between the two, which cannot be easily represented in a tabular format. For instance, the tabular format is not well suited for dealing with polymorphism in a straightforward way, i.e. the situation where a taxon can have more than one possible value for a given character. Also, it may often be desirable to treat taxa hierarchically rather than as a simple list of equally ranked entities, something which is difficult to do in the matrix format. Thus, representing taxonomic knowledge in this tabular format restricts the complexity of the information that can be stored.
 
-The method of storing and exchanging taxonomic knowledge described here, is developed as a non-tabular multiple access key. The core of any Clavis key is a collection of statements. A statement links a taxon to a character, and specifies the state or numerical value the taxon has for that character (see Fig. ~\ref{fig1}). E.g. the color (character) of species x (taxon) is red (state), or the length in mm (character) of genus x (taxon) is 4-11 (numerical range).
+The method of storing and exchanging taxonomic knowledge described here, is developed as a non-tabular multiple access key. The core of any Clavis key is a collection of statements. A statement links a taxon to a character, and specifies the state or numerical value the taxon has for that character (see Fig.~\ref{fig1}). E.g. the color (character) of species x (taxon) is red (state), or the length in mm (character) of genus x (taxon) is 4-11 (numerical range).
 
 
 
@@ -146,12 +146,7 @@ Implementation
 }
 As an exchange and storage format, Clavis does not dictate how it is to be implemented. Different interfaces can implement it differently, depending on the purpose of the interface and the user group. To this end, interfaces serving to edit or display may disregard certain non-essential functionality supported by Clavis. One could for example create a key editor not supporting media files or multilingualism. Other aspects of the format are crucial however, and require support and unambiguous interpretation.
 
-Identification is a matter of excluding taxa, and is done by letting the user select a state or numerical value for characters. Each time the user provides a new fact in this way, all taxa with conflicting statements are excluded. The user can also be given the option to exclude a state rather than affirm one if there are more than two states to choose from. Characters that have not been answered but only have a single possible answer remaining for all remaining taxa can be hidden.
-
-Whenever taxa are excluded, characters that were previously hidden may now have become relevant if all the remaining taxa have a statement pertaining to it. It is important to check for states that, while not having been answered directly by the user, can be deduced from the statements related to the remaining taxa: if all the remaining taxa are known not to have a certain state, that state can be disabled. In such cases, the state still needs to be visible to the user as it provides context to the remaining options, but it should not be possible for the user to select it. In all cases, only characters that are linked by statements to \underline{all} the currently non-excluded taxa should be shown to the user.
-
-Things become more complicated when allowing the user to undo previous answers. Undoing an answer might render a character that was subsequently answered irrelevant again. To avoid answers to this now irrelevant character from eliminating taxa as possibilities, an implementation needs to be able to remove or ignore such answers on characters that were rendered irrelevant.
-
+Identification is a matter of excluding taxa, and is done by letting the user select a state or numerical value for characters. Each time the user provides a new fact in this way, all taxa with conflicting statements are excluded (see Fig.~\ref{fig2}). The user can also be given the option to exclude a state rather than affirm one if there are more than two states to choose from. Characters that have not been answered but only have a single possible answer remaining for all remaining taxa can be hidden.
 
 
 \begin{figure}[!h]
@@ -160,6 +155,10 @@ Things become more complicated when allowing the user to undo previous answers. 
   }
   \label{fig2}
  \end{figure}
+
+Whenever taxa are excluded, characters that were previously hidden may now have become relevant if all the remaining taxa have a statement pertaining to it, as illustrated in Fig.~\ref{fig2}. It is important to check for states that, while not having been answered directly by the user, can be deduced from the statements related to the remaining taxa: if all the remaining taxa are known not to have a certain state, that state can be disabled. In such cases, the state still needs to be visible to the user as it provides context to the remaining options, but it should not be possible for the user to select it. In all cases, only characters that are linked by statements to \underline{all} the currently non-excluded taxa should be shown to the user.
+
+Things become more complicated when allowing the user to undo previous answers. Undoing an answer might render a character that was subsequently answered irrelevant again. To avoid answers to this now irrelevant character from eliminating taxa as possibilities, an implementation needs to be able to remove or ignore such answers on characters that were rendered irrelevant.
 
 The provided schema ensures that a key adheres to the Clavis format in a technical sense, but it does not ensure that any compliant key is logically complete and consistent. One can make a valid key that contradicts itself or that does not contain sufficient information to reliably distinguish between certain taxa. It is advisable to implement checks for this in any key-editor, and when keys by third parties are to be displayed, to also ensure such cases are handled by the end-user interface.
 
@@ -267,7 +266,7 @@ Key metadata
 }
 Very few parameters are required on the top level of the key. Apart from the content of the key (taxa, characters and statements linking the two), a key is expected to refer to the version of the schema with which it complies, a title, language, license, a creator, the date at which it was last modified and an identifier that is to be kept stable across versions. As the creator is expected to be a reference to a person entity, one also needs to define at least one person.
 
-\textit{\textbf{Example}: See the example key in the Supplementary Information, lines 2 - 11.}
+\textit{\textbf{Example}: See lines 2 - 11 in the \nameref{S2_Appendix} for the corresponding JSON..}
 
 \subsection*{
 Taxa
@@ -278,9 +277,12 @@ In addition to biological taxonomic units, one can also define sub-groups within
 
 The goal of the key is to provide a way to eliminate all but one taxon; the end point of the key.  The key should stop asking questions once the user has narrowed down the possible outcomes to a single end point. In a flat list of taxa, every taxon in the list will normally be an end point. In a hierarchical list, the lowermost taxa in the hierarchy will be the end points by default. This can be overridden, however, by explicitly tagging a taxon higher up the tree as an end point. Then, information on lower taxa may be displayed when identified while using the key, but no additional questions are asked once the end point has been determined. This can be used, for instance, to display an image of the relevant sub-group for a taxon, so that the taxon images reflect the input from the user.
 
+\textit{\textbf{Example}: Pichu, Pikachu and Raichu are all species within the Pikachuidae. They each have a default and a ``Shiny'' morph, which is to be determined. The default Pikachu morph also has a subdivision into the sexes, but as the morph is tagged as an endpoint the user will not be asked further questions to determine these once the morph has been determined. See lines 27 - 111 \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig3} for a graphical representation.}
+
+
 \begin{figure}[!h]
-  \caption{\textit{\textbf{Example}:
-A taxon tree of the Pikachu-line. Taxa tagged as endpoint are indicated with an asterisk (*). This key continues until the correct morph (``Shiny'' or default) is known, while differences in the sexes are optional and will not be asked about once the correct Pokémon and morph have been determined. See example key, lines 27 - 111 for the corresponding JSON.
+  \caption{\textit{\textbf{A taxon tree of the Pikachu-line}:
+Taxa tagged as endpoint are indicated with an asterisk (*). This key continues until the correct morph (``Shiny'' or default) is known, while differences in the sexes are optional and will not be asked about once the correct Pokémon and morph have been determined.
   }}
   \label{fig3}
 \end{figure}
@@ -293,15 +295,15 @@ In the default setting, the states of a character are interpreted as being mutua
 
 % Image?
 
-\textit{\textbf{Example}: Pikachu is always an electric type. See example key, lines 287 - 292.}
+\textit{\textbf{Example}: Pikachu is always an electric type. See lines 287 - 292 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 % Image?
 
-\textit{\textbf{Example}: Pikachu is never blue. Note that it is not inferred that Pikachus therefore are red. See example key, lines 293 - 299.}
+\textit{\textbf{Example}: Pikachu is never blue. Note that it is not inferred that Pikachus therefore are red. See lines 293 - 299 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 % Image?
 
-\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See example key, lines 300 - 313.}
+\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See lines 300 - 313 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Multilingualism
 }
@@ -385,7 +387,7 @@ Persons and institutions can have resources such as urls and mediaFiles connecte
 
 % Image?
 
-\textit{\textbf{Example}: Definition of a person and an organization. See example key, lines 12 - 25.}
+\textit{\textbf{Example}: Definition of a person and an organization. See lines 12 - 25 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Geographic and taxonomic scope
 }
@@ -393,11 +395,11 @@ Regions can be defined using a GeoJSON MultiPolygon. On the top level, ``geograp
 
 % Image?
 
-\textit{\textbf{Example}: Kangaskhan only occurs in Australia. See example key, lines 120 - 169.}
+\textit{\textbf{Example}: Kangaskhan only occurs in Australia. See lines 120 - 169 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 % Image?
 
-\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the rainy city of Bergen. See example key, lines 325 - 368.}
+\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the rainy city of Bergen. See lines 325 - 368 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Logical premises
 }
@@ -407,7 +409,7 @@ While seldomly required for a key to work in general, logical premises can be us
 
 % Image?
 
-\textit{\textbf{Example}: Pikachu caught during special events have hats, in contrast to those caught outside of such events. Other Pokémon (e.g. Honchkrow) always have hats. This allows for the characteristics of the hat to be used in identification, but only when one is not only left solely with Pokémon that can have hats, but when it has been established that the target Pokémon in fact is wearing one. See example key, lines 257 - 271.}
+\textit{\textbf{Example}: Pikachu caught during special events have hats, in contrast to those caught outside of such events. Other Pokémon (e.g. Honchkrow) always have hats. This allows for the characteristics of the hat to be used in identification, but only when one is not only left solely with Pokémon that can have hats, but when it has been established that the target Pokémon in fact is wearing one. See lines 257 - 271 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Numerical values
 }
@@ -416,7 +418,7 @@ The possible values that a character can have can take the form of a set of disc
 % Image?
 
 
-\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kg within a given range. A statement can then be included to register the possible weight range of a given taxon. See example key, lines 272 - 284 (character) and lines 314 - 324 (statement).}
+\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kg within a given range. A statement can then be included to register the possible weight range of a given taxon. See lines 272 - 284 (character) and lines 314 - 324 (statement) in \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 External services
 }
@@ -426,11 +428,11 @@ External services should not contain information critical to the workings of the
 
 % Image?
 
-\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See example key, lines 458 - 462 (service) and lines 52 - 55 (externalResource).}
+\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See lines 458 - 462 (service) and lines 52 - 55 (externalResource) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 % Image?
 
-\textit{\textbf{Example}: A hypothetical API returns the probability for a provided taxon, given its location and size.}
+\textit{\textbf{Example}: A hypothetical API returns the probability for a provided taxon, given its location and size. See lines 440 - 446 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Required expertise
 }
@@ -438,7 +440,7 @@ Some characters are harder to evaluate than others, and may even require special
 
 % Image?
 
-\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weight ranges vary. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be filtered out. One can also add a guide to how one catches a Pokémon. See example key, lines 272 - 284 (character) and lines 441 - 455 (userRequirement).}
+\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weight ranges vary. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be filtered out. One can also add a guide to how one catches a Pokémon. See lines 272 - 284 (character) and lines 441 - 455 (userRequirement) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 \subsection*{
 Media elements
@@ -447,7 +449,7 @@ Illustrations greatly improve the usability and aesthetics of any key. Most enti
 
 % Image?
 
-\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See example key, lines 227 - 240 (states) and lines 465 - 511 (mediaElements).}
+\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See lines 227 - 240 (states) and lines 465 - 511 (mediaElements) in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Descriptions
 }
@@ -455,7 +457,7 @@ There are many aspects of an identification key where a more elaborate descripti
 
 % Image?
 
-\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See example key, lines 446 - 455.}
+\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See lines 446 - 455 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Followup
 }
@@ -463,15 +465,17 @@ Once a key has identified a taxon as far as it is intended to, i.e. when it has 
 
 % Image?
 
-\textit{\textbf{Example}: Once the Pokémon is determined to be a Pikachu, the user can be advised that there is a key to determine which of its many possible costumes the Pikachu is wearing. See example key, line 56.}
+\textit{\textbf{Example}: Once the Pokémon is determined to be a Pikachu, the user can be advised that there is a key to determine which of its many possible costumes the Pikachu is wearing. See line 56 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Non-exclusive characters
 }
 By default, the (non-numerical) states of a character are treated as being mutually exclusive. If there is an option for ``red'' and one for ``blue'', then specifying that the target specimen is red implies that it is not blue. It is possible to override this default behavior by specifying a character as being of the ``non-exclusive'' type. That way, the user is allowed to indicate that the specimen fits more than one state, for instance that it is red \textit{and} blue.
 
+\textit{\textbf{Example}: Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has. See lines 200 - 224 in the \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig4} for a graphical representation.}
+
 \begin{figure}[!h]
-  \caption{\textit{\textbf{Example}:
-Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has. See example key, lines 200 - 224 (character) and lines 369 - 438 (statements) for the corresponding JSON.
+  \caption{\textit{\textbf{The colors of Pikachu and Raichu}:
+Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has.
 }}
  \label{fig4}
 \end{figure}
@@ -483,7 +487,7 @@ The examples provided here illustrate the versatility of a format as Clavis. Sev
 
 A crucial aspect in identifying any taxon is the geographic origin of the target specimen. Primarily, it dictates which taxa are candidates for its true identity, and thus which key can be used and which taxa within the key are to be considered. Secondarily, it dictates the possible traits of the taxa, insofar as these vary geographically. By referring to external services for geographical information, keys can be made to directly benefit from Species Distribution Models hosted elsewhere, ever improving as more data and improved methodology become available.
 
-           
+
 \begin{figure}[!h]
   \caption{{\bf An example implementation of a Clavis key graphical user interface.}
 A hierarchical list of taxa (left) is reduced by providing input on characters (right). Only characters relevant for all remaining taxa are shown.
