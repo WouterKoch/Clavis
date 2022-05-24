@@ -266,7 +266,7 @@ Key metadata
 }
 Very few parameters are required on the top level of the key. Apart from the content of the key (taxa, characters and statements linking the two), a key is expected to refer to the version of the schema with which it complies, a title, language, license, a creator, the date at which it was last modified and an identifier that is to be kept stable across versions. As the creator is expected to be a reference to a person entity, one also needs to define at least one person.
 
-\textit{\textbf{Example}: See lines 2 - 11 in the \nameref{S2_Appendix} for the corresponding JSON..}
+\textit{\textbf{Example}: See lines 2 - 10 in the \nameref{S2_Appendix} for the corresponding JSON..}
 
 \subsection*{
 Taxa
@@ -277,7 +277,7 @@ In addition to biological taxonomic units, one can also define sub-groups within
 
 The goal of the key is to provide a way to eliminate all but one taxon; the end point of the key.  The key should stop asking questions once the user has narrowed down the possible outcomes to a single end point. In a flat list of taxa, every taxon in the list will normally be an end point. In a hierarchical list, the lowermost taxa in the hierarchy will be the end points by default. This can be overridden, however, by explicitly tagging a taxon higher up the tree as an end point. Then, information on lower taxa may be displayed when identified while using the key, but no additional questions are asked once the end point has been determined. This can be used, for instance, to display an image of the relevant sub-group for a taxon, so that the taxon images reflect the input from the user.
 
-\textit{\textbf{Example}: Pichu, Pikachu and Raichu are all species within the Pikachuidae. They each have a default and a ``Shiny'' morph, which is to be determined. The default Pikachu morph also has a subdivision into the sexes, but as the morph is tagged as an endpoint the user will not be asked further questions to determine these once the morph has been determined. See lines 27 - 111 \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig3} for a graphical representation.}
+\textit{\textbf{Example}: Pichu, Pikachu and Raichu are all species within the Pikachuidae. They each have a default and a ``Shiny'' morph, which is to be determined. The default Pikachu morph also has a subdivision into the sexes, but as the morph is tagged as an endpoint the user will not be asked further questions to determine these once the morph has been determined. See lines 25 - 94 in the \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig3} for a graphical representation.}
 
 
 \begin{figure}[!h]
@@ -293,17 +293,11 @@ One of the possible values for a statement (the relationship between a taxon and
 
 In the default setting, the states of a character are interpreted as being mutually exclusive. If there is a character with states ``blue'' and ``red'', a specimen may be either blue or red, but not both at the same time. This means that a taxon that is noted as always being blue is known never to be red, and vice versa. This default behavior can be overridden, however, by defining the character as non-exclusive.
 
-% Image?
+\textit{\textbf{Example}: Pikachu is always an electric type. See lines 264 - 270 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: Pikachu is always an electric type. See lines 287 - 292 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu is never blue. Note that it is not inferred that Pikachus therefore are red. See lines 271 - 277 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-% Image?
-
-\textit{\textbf{Example}: Pikachu is never blue. Note that it is not inferred that Pikachus therefore are red. See lines 293 - 299 in the \nameref{S2_Appendix} for the corresponding JSON.}
-
-% Image?
-
-\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See lines 300 - 313 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See lines 278 - 291 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Multilingualism
 }
@@ -328,6 +322,7 @@ Not only strings can have different versions for different languages. Links to e
 \end{verbatim}
 
 \textit{\textbf{Example}: A creator name that needs no translation, and a character that does, within a multilingual English/Dutch key}
+
 \begin{verbatim}
 "language": ["en", "nl"],
 "creator": "person:wouterkoch",
@@ -360,6 +355,7 @@ Not only strings can have different versions for different languages. Links to e
 \end{verbatim}
 
 \textit{\textbf{Example}: An organization with names and urls within a multilingual Norwegian/English key}
+
 \begin{verbatim}
 "language": ["no", "en"],
 "publisher": "organization:ntnu",
@@ -384,22 +380,15 @@ Persons and organizations
 Persons and organizations can have multiple roles in different contexts. A person can be a contact person for a key, and one or more persons can be creators or contributors to a key. Persons can also be creators or contributors to media files. A person can have one or more organizations as their affiliation, and organizations can have a person as a primary contact. An organization can be the publisher of a key or media file, and the primary contact for a key can also be an organization instead of a person.
 
 Persons and institutions can have resources such as urls and mediaFiles connected to them, e.g. institutional websites, portraits and logos.
-
-% Image?
-
-\textit{\textbf{Example}: Definition of a person and an organization. See lines 12 - 25 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Definition of a person and an organization. See lines 11 - 23 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Geographic and taxonomic scope
 }
 Regions can be defined using a GeoJSON MultiPolygon. On the top level, ``geography'' can be specified to indicate what geographic region the key covers. One can also define a geography at the taxon or statement level, to provide information on where the taxon occurs, and in which region a taxon has that particular relationship to a character. Within a region specified as the geography of a statement, the statement with a geography takes precedence over the conflicting statement without a stated geography.
 
-% Image?
+\textit{\textbf{Example}: Kangaskhan only occurs in Australia. See lines 95 - 146 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: Kangaskhan only occurs in Australia. See lines 120 - 169 in the \nameref{S2_Appendix} for the corresponding JSON.}
-
-% Image?
-
-\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the rainy city of Bergen. See lines 325 - 368 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the rainy city of Bergen. See lines 302 - 347 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Logical premises
 }
@@ -407,18 +396,13 @@ Not all characters make sense in every context, and it is sometimes desirable to
 
 While seldomly required for a key to work in general, logical premises can be used to ease the identification process. If characters are scored only for those taxa for which they are relevant for distinguishing, this in itself will normally ensure that the characters stay hidden from the user until they are relevant. However, a situation may arise if some of the taxa in the key are polymorphic, i.e. if they either may or may not have a certain character. In this situation, a character can become visible to the user because all the remaining taxa \textit{can} have it, which will likely cause confusion if the actual target specimen does \textit{not} have it, or it is not observable. By introducing a logical premise such a character may be hidden unless the user has indicated that the specimen does in fact have the character.
 
-% Image?
-
-\textit{\textbf{Example}: Pikachu caught during special events have hats, in contrast to those caught outside of such events. Other Pokémon (e.g. Honchkrow) always have hats. This allows for the characteristics of the hat to be used in identification, but only when one is not only left solely with Pokémon that can have hats, but when it has been established that the target Pokémon in fact is wearing one. See lines 257 - 271 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu caught during special events have hats, in contrast to those caught outside of such events. Other Pokémon (e.g. Honchkrow) always have hats. This allows for the characteristics of the hat to be used in identification, but only when one is not only left solely with Pokémon that can have hats, but when it has been established that the target Pokémon in fact is wearing one. See lines 220 - 248 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Numerical values
 }
 The possible values that a character can have can take the form of a set of discrete states, such as ``present''/``absent'', or ``red''/``blue''. Others may however come in the form of numerical values, such as counts or measurements. In a key this can be implemented with a character of the type ``numerical''. One can specify the range (min and max) the character can have, the step size and the unit. Statements specifying values for such characters to any taxon can have a range, or a single value. In cases where more advanced metrics are needed, such as a probability function over the numerical values for use in Bayesian analysis, this can be implemented through a call to an external service (see below).
 
-% Image?
-
-
-\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kg within a given range. A statement can then be included to register the possible weight range of a given taxon. See lines 272 - 284 (character) and lines 314 - 324 (statement) in \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kg within a given range. A statement can then be included to register the possible weight range of a given taxon. See lines 249 - 261 (character) and lines 292 - 301 (statement) in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 External services
 }
@@ -426,11 +410,7 @@ Various units in a key may be subject to changes that are ideally managed outsid
 
 External services should not contain information critical to the workings of the key, as not every implementation can be expected to contain the necessary code to retrieve the information the service provides. External services are however useful for features steering presentation, and can provide complex information that depends on various user inputs and other contextual information. To sort taxa by probability, for example, an external service may provide probability scores for taxa based on the geographic location of the user, the season, and properties like coloration and size of the specimen. An interface that does not implement calling this service will simply not sort the taxa, but still be fully functional.
 
-% Image?
-
-\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See lines 458 - 462 (service) and lines 52 - 55 (externalResource) in the \nameref{S2_Appendix} for the corresponding JSON.}
-
-% Image?
+\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See lines 435 - 439 (service) and lines 47 - 50 (externalResource) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 \textit{\textbf{Example}: A hypothetical API returns the probability for a provided taxon, given its location and size. See lines 440 - 446 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
@@ -438,32 +418,24 @@ Required expertise
 }
 Some characters are harder to evaluate than others, and may even require special equipment. To warn and assist users, a key can contain userRequirements, describing such required skills. These requirements can be connected to characters so that the user might filter out characters requiring skills or equipment they do not have, be presented with additional info to complete the task, or simply be warned.
 
-% Image?
-
-\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weight ranges vary. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be filtered out. One can also add a guide to how one catches a Pokémon. See lines 272 - 284 (character) and lines 441 - 455 (userRequirement) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weight ranges vary. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be filtered out. One can also add a guide to how one catches a Pokémon. See lines 249 - 261 (character) and lines 420 - 432 (userRequirement) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 \subsection*{
 Media elements
 }
 Illustrations greatly improve the usability and aesthetics of any key. Most entities in a Clavis key can contain a reference to an image; taxa, characters and states, but also persons, organizations, userRequirements, etc. To facilitate this, Clavis defines mediaElements, containing one or more mediaFiles. These mediaFiles can contain and/or link to image, sound or video files, using an array of mediaFiles to allow different sizes of the same file to be included.
 
-% Image?
-
-\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See lines 227 - 240 (states) and lines 465 - 511 (mediaElements) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See lines 207 - 218 (states) and lines 449 - 498 (mediaElements) in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Descriptions
 }
 There are many aspects of an identification key where a more elaborate description is desirable or even required. To this end, many elements can have a short and/or extended description in valid markdown, as well as a url to an online description.
 
-% Image?
-
-\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See lines 446 - 455 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See lines 425 - 431 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Followup
 }
 Once a key has identified a taxon as far as it is intended to, i.e. when it has narrowed it down to an end point taxon, the user is presented with the result. It may however be possible to further determine the result. If a key exists somewhere that can help with this, it can be referred to as a followup key from the relevant taxon. It can be either a url, or a reference to an (external) service. This feature can also be used to split keys into several smaller keys that refer to one another through this mechanism.
-
-% Image?
 
 \textit{\textbf{Example}: Once the Pokémon is determined to be a Pikachu, the user can be advised that there is a key to determine which of its many possible costumes the Pikachu is wearing. See line 56 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
@@ -471,11 +443,12 @@ Non-exclusive characters
 }
 By default, the (non-numerical) states of a character are treated as being mutually exclusive. If there is an option for ``red'' and one for ``blue'', then specifying that the target specimen is red implies that it is not blue. It is possible to override this default behavior by specifying a character as being of the ``non-exclusive'' type. That way, the user is allowed to indicate that the specimen fits more than one state, for instance that it is red \textit{and} blue.
 
-\textit{\textbf{Example}: Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has. See lines 200 - 224 in the \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig4} for a graphical representation.}
+\textit{\textbf{Example}: Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has. See lines 177 - 203 in the \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig4} for a graphical representation.}
+
 
 \begin{figure}[!h]
   \caption{\textit{\textbf{The colors of Pikachu and Raichu}:
-Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has.
+By adding statements for the non-exclusive character for the color of Pikachu and Raichu, the user can pick and/or exclude freely from a list of colors in the identification key.
 }}
  \label{fig4}
 \end{figure}
