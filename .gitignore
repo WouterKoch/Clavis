@@ -4,3 +4,8 @@
 *.gz
 *.aux
 *.fdb_latexmk
+*.bcf
+*.blg
+*.run.xml
+
+Submission

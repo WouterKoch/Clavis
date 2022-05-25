@@ -1,31 +1,15 @@
 \documentclass[10pt,letterpaper]{article}
-\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{changepage}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp,marvosym}
 \usepackage{cite}
 \usepackage{nameref,hyperref}
-\usepackage[right]{lineno}
+\usepackage[left]{lineno}
 \usepackage{microtype}
 \DisableLigatures[f]{encoding = *, family = * }
 \usepackage[table]{xcolor}
 \usepackage{array}
-\newcolumntype{+}{!{\vrule width 2pt}}
-\newlength\savedwidth
-\newcommand\thickcline[1]{%
-  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
-  \cline{#1}%
-  \noalign{\vskip\arrayrulewidth}%
-  \noalign{\global\arrayrulewidth\savedwidth}%
-}
-\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
-\hline
-\noalign{\global\arrayrulewidth\savedwidth}}
-\raggedright
-\setlength{\parindent}{0.5cm}
-\textwidth 5.25in
-\textheight 8.75in
 \usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
 \renewcommand{\figurename}{Fig}
 \bibliographystyle{plos2015}
@@ -36,19 +20,6 @@
 
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
-%\pagestyle{myheadings}
-\pagestyle{fancy}
-\fancyhf{}
-%\setlength{\headheight}{27.023pt}
-%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
-\rfoot{\thepage/\pageref{LastPage}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
-\fancyheadoffset[L]{2.25in}
-\fancyfootoffset[L]{2.25in}
-\lfoot{\today}
-
-%% ADDED BY AUTHORS
 \usepackage{orcidlink}
 \makeatletter
 \renewcommand {\verbatim@font}
@@ -61,16 +32,15 @@
 \makeatother
 \usepackage [russian,english] {babel}
 
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = black,
+  linkcolor    = black,
+  citecolor   = black
+}
 \usepackage{newunicodechar}
 \newunicodechar{♀}{\Female}
 \newunicodechar{♂}{\Male}
-
-
-
-%% END ADDED BY AUTHORS
-
-
-
 
 \begin{document}
 \vspace*{0.2in}
@@ -84,7 +54,6 @@ S1 Appendix. Clavis JSON-schema
 \end{flushleft}
 \linenumbers
 \begin{verbatim}
-
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Clavis identification key schema",
@@ -1308,7 +1277,6 @@ the taxon having this property.",
     }
   }
 }
-
 \end{verbatim}
 \nolinenumbers
 \end{document}

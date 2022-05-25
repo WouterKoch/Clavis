@@ -1,31 +1,15 @@
 \documentclass[10pt,letterpaper]{article}
-\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{changepage}
 \usepackage[utf8x]{inputenc}
 \usepackage{textcomp,marvosym}
 \usepackage{cite}
 \usepackage{nameref,hyperref}
-\usepackage[right]{lineno}
+\usepackage[left]{lineno}
 \usepackage{microtype}
 \DisableLigatures[f]{encoding = *, family = * }
 \usepackage[table]{xcolor}
 \usepackage{array}
-\newcolumntype{+}{!{\vrule width 2pt}}
-\newlength\savedwidth
-\newcommand\thickcline[1]{%
-  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
-  \cline{#1}%
-  \noalign{\vskip\arrayrulewidth}%
-  \noalign{\global\arrayrulewidth\savedwidth}%
-}
-\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
-\hline
-\noalign{\global\arrayrulewidth\savedwidth}}
-\raggedright
-\setlength{\parindent}{0.5cm}
-\textwidth 5.25in
-\textheight 8.75in
 \usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
 \renewcommand{\figurename}{Fig}
 \bibliographystyle{plos2015}
@@ -36,19 +20,6 @@
 
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
-%\pagestyle{myheadings}
-\pagestyle{fancy}
-\fancyhf{}
-%\setlength{\headheight}{27.023pt}
-%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
-\rfoot{\thepage/\pageref{LastPage}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
-\fancyheadoffset[L]{2.25in}
-\fancyfootoffset[L]{2.25in}
-\lfoot{\today}
-
-%% ADDED BY AUTHORS
 \usepackage{orcidlink}
 \makeatletter
 \renewcommand {\verbatim@font}
@@ -60,7 +31,14 @@
 }
 \makeatother
 \usepackage [russian,english] {babel}
-%% END ADDED BY AUTHORS
+
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = black,
+  linkcolor    = black,
+  citecolor   = black
+}
+
 
 \begin{document}
 \vspace*{0.2in}
@@ -93,7 +71,6 @@ Anders G. Finstad\orcidlink{0000-0003-4529-6266}\textsuperscript{1}
 Abstract
 }
 The skill to recognize and classify taxa requires knowledge that is less and less common in the scientific community. At the same time, it is clear that these skills are needed in biodiversity monitoring for management and conservation, especially when carried out by citizen scientists. Formalizing the required knowledge in digital identification keys is a way of making such knowledge more available for professional and amateur observers of biodiversity. In this paper we describe Clavis, a modern open framework for capturing knowledge required for taxon identification through digital keys, allowing for a level of detail beyond that of any current format. We exemplify each concept using Pokémon as a fictional taxonomic group.
-\linenumbers
 \section*{
 Introduction
 }
@@ -132,10 +109,14 @@ The method of storing and exchanging taxonomic knowledge described here, is deve
 
 
 \begin{figure}[!h]
+  \includegraphics[width=\textwidth]{Images/Fig1}
   \caption{{\bf The core concepts of any Clavis key.}
   \underline{Taxa} (left) and \underline{characters} (right) are connected through \underline{statements} (center). Each statement refers to one taxon and one character, linking the two by a value, usually one of the possible \underline{states} of the character, or a numerical value.}
   \label{fig1}
 \end{figure}
+
+
+
 
 Additional information can be linked to taxa, characters, states and statements in a number of ways, capturing knowledge and relationships that cannot be represented in a tabular form in a practical way. Such information includes media elements, textual descriptions, and contextual information such as geographic scope. The Clavis format incorporates all the possibilities of the previously described approaches, so that any single access or matrix key can be transcribed to it.
 
@@ -150,6 +131,7 @@ Identification is a matter of excluding taxa, and is done by letting the user se
 
 
 \begin{figure}[!h]
+  \includegraphics[width=\textwidth]{Images/Fig2}
   \caption{{\bf The identification of a specimen.}
   When considering all taxa, the character about size is not relevant, as one of the taxa has no statement for size, so only the character about colors is relevant (a). The user gives an input, which is compared to the related statements, upon which 2 taxa are eliminated (b). Considering the now remaining taxa, the character about size has become relevant (c). The user gives another input, and based on the related statements, one additional taxon is eliminated, leaving one result (d).
   }
@@ -281,6 +263,7 @@ The goal of the key is to provide a way to eliminate all but one taxon; the end 
 
 
 \begin{figure}[!h]
+  \includegraphics[width=\textwidth]{Images/Fig3}
   \caption{\textit{\textbf{A taxon tree of the Pikachu-line}:
 Taxa tagged as endpoint are indicated with an asterisk (*). This key continues until the correct morph (``Shiny'' or default) is known, while differences in the sexes are optional and will not be asked about once the correct Pokémon and morph have been determined.
   }}
@@ -447,6 +430,7 @@ By default, the (non-numerical) states of a character are treated as being mutua
 
 
 \begin{figure}[!h]
+  \includegraphics[width=\textwidth]{Images/Fig4}
   \caption{\textit{\textbf{The colors of Pikachu and Raichu}:
 By adding statements for the non-exclusive character for the color of Pikachu and Raichu, the user can pick and/or exclude freely from a list of colors in the identification key.
 }}
@@ -460,8 +444,8 @@ The examples provided here illustrate the versatility of a format as Clavis. Sev
 
 A crucial aspect in identifying any taxon is the geographic origin of the target specimen. Primarily, it dictates which taxa are candidates for its true identity, and thus which key can be used and which taxa within the key are to be considered. Secondarily, it dictates the possible traits of the taxa, insofar as these vary geographically. By referring to external services for geographical information, keys can be made to directly benefit from Species Distribution Models hosted elsewhere, ever improving as more data and improved methodology become available.
 
-
 \begin{figure}[!h]
+  \includegraphics[width=\textwidth]{Images/Fig5}
   \caption{{\bf An example implementation of a Clavis key graphical user interface.}
 A hierarchical list of taxa (left) is reduced by providing input on characters (right). Only characters relevant for all remaining taxa are shown.
 }
@@ -481,6 +465,7 @@ We believe that the storage of taxonomic knowledge with the level of detail exem
 \section*{
 Data availability and licensing
 }
+
 The latest formal definition of Clavis can be found at \url{https://github.com/Artsdatabanken/Clavis}. All files related to this manuscript can be found at \url{https://github.com/WouterKoch/Clavis}.
 
 Fig. \ref{fig5} is based on an Odonata key previously published by the Norwegian Biodiversity Information Centre. In these screenshots, character illustrations are made by Hallvard Elven and licensed under a CC BY 4.0 license, while taxon images are made by Göran Liljeberg and licensed under a CC BY-SA 4.0 license.
