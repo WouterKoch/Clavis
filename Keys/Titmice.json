@@ -101,6 +101,7 @@
       {
          "id": "service:nbic_taxa",
          "title": "NBIC taxonomy scientificNameId",
+         "description": "To retrieve taxon information based on the NBIC scientificNameId, e.g. through https://www.artsdatabanken.no/api/Taxon/ByScientificNameId/4362",
          "provider": "Norwegian Biodiversity Information Centre",
          "url": "https://www.artsdatabanken.no/help"
       }
