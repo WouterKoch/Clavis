@@ -13,7 +13,8 @@
     "identifier",
     "taxa",
     "characters",
-    "statements"
+    "statements",
+    "persons"
   ],
   "properties": {
     "$schema": {
