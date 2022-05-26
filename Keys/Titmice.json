@@ -97,13 +97,6 @@
          "name": "Wouter Koch"
       }
    ],
-   "organizations": [
-      {
-         "id": "organization:ntnu",
-         "name": "Norwegian University of Science and Technology",
-         "url": "https://www.ntnu.no"
-      }
-   ],
    "externalServices": [
       {
          "id": "service:nbic_taxa",
