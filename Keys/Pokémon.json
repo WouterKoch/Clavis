@@ -249,13 +249,10 @@
       "title": "How much does the Pokémon weigh?",
       "userRequirement": "requirement:catch",
       "type": "numerical",
-      "states": {
-        "id": "state:weight",
-        "min": 1,
-        "max": 125,
-        "stepSize": 1,
-        "unit": "kg"
-      }
+      "min": 1,
+      "max": 125,
+      "stepSize": 1,
+      "unit": "kg"
     }
   ],
   "statements": [

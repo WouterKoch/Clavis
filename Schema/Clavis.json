@@ -845,10 +845,25 @@
     },
     "character": {
       "type": "object",
-      "required": [
-        "id",
-        "title",
-        "states"
+      "oneOf": [
+        {
+          "required": [
+            "id",
+            "title",
+            "states"
+          ]
+        },
+        {
+          "required": [
+            "id",
+            "title",
+            "type",
+            "min",
+            "max",
+            "stepSize",
+            "unit"
+          ]
+        }
       ],
       "properties": {
         "id": {
@@ -915,6 +930,29 @@
           "type": "string",
           "pattern": "^(( && )|( \\|\\| )|(&&)|(\\|\\|)|[a-z0-9_:()!<>=])+$"
         },
+        "min": {
+          "type": "number",
+          "description": "The minimum numerical value for the character."
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum numerical value for the character."
+        },
+        "stepSize": {
+          "type": "number",
+          "description": "The increments with which the numerical value of the character can be specified."
+        },
+        "unit": {
+          "description": "The unit of the numerical value.",
+          "$ref": "#/definitions/localizedString",
+          "examples": [
+            "mm",
+            "meters below the surface",
+            "spots",
+            "legs",
+            "kg"
+          ]
+        },
         "states": {
           "oneOf": [
             {
@@ -934,22 +972,9 @@
     "state": {
       "description": "The value a character can have.",
       "type": "object",
-      "oneOf": [
-        {
-          "required": [
-            "id",
-            "title"
-          ]
-        },
-        {
-          "required": [
-            "id",
-            "min",
-            "max",
-            "stepSize",
-            "unit"
-          ]
-        }
+      "required": [
+        "id",
+        "title"
       ],
       "properties": {
         "id": {
@@ -991,33 +1016,6 @@
           "description": "Hyperlink or resource to more information on the state.",
           "comment": "Accepts object for multilingual support.",
           "$ref": "#/definitions/localizedUrl"
-        },
-        "min": {
-          "description": "Lowest numerical value of the state (over all taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "max": {
-          "description": "Highest possible numerical value of the state (over all taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "stepSize": {
-          "description": "Step size of the state (steps between min and max, over all taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "unit": {
-          "description": "Unit in which the state is measured or counted.",
-          "comment": "Only to be used for numerical characters. Accepts object for multilingual support.",
-          "$ref": "#/definitions/localizedString",
-          "examples": [
-            "mm",
-            "meters below the surface",
-            "spots",
-            "legs",
-            "kg"
-          ]
         }
       },
       "additionalProperties": false
