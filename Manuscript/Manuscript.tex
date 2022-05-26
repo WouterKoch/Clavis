@@ -72,6 +72,7 @@ Anders G. Finstad\orcidlink{0000-0003-4529-6266}\textsuperscript{1}
 Abstract
 }
 The skills and knowledge needed to recognize and classify taxa is becoming increasingly scarce in the scientific community. At the same time, it is clear that these skills are strongly needed in biodiversity monitoring for management and conservation, especially when carried out by citizen scientists. Formalizing the required knowledge in the form of digital identification keys is one way of making such knowledge more available for professional and amateur observers of biodiversity. In this paper we describe Clavis, a modern open format for capturing knowledge required for taxon identification through digital keys, allowing for a level of detail beyond that of any current key format. We exemplify each concept using Pokémon as a fictional taxonomic group.
+
 \section*{
 Introduction
 }
@@ -273,11 +274,11 @@ One of the possible values for a statement (the relationship between a taxon and
 
 In the default setting, the states of a character are interpreted as being mutually exclusive. If there is a character with states ``blue'' and ``red'', a specimen may be either blue or red, but not both at the same time. This means that a taxon that is noted as always being blue is known never to be red, and vice versa. This default behavior can be overridden, however, by defining the character as non-exclusive. In this case, stating that a specimen is blue does not exclude the possibility that it is also red.
 
-\textit{\textbf{Example}: Pikachu is always an electric type. See lines 264 - 270 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu is always an electric type. See lines 261 - 267 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: Pikachu is never blue. See lines 271 - 277 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu is never blue. See lines 268 - 274 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See lines 278 - 291 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: Pikachu has a double-lobed tail in 50\% of the cases. See lines 275 - 281 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 \textit{\textbf{Example}: Pikachu contains the colors yellow, black and red. The closely related Raichu contains yellow, brown, white and red. Setting the color character to be of non-exclusive type allows the user to indicate all the colors that each of them has. See lines 177 - 203 in the \nameref{S2_Appendix} for the corresponding JSON, and Fig.~\ref{fig4} for a graphical representation.}
 
@@ -379,7 +380,7 @@ Geographic regions can be defined using a name and/or GeoJSON MultiPolygon. On t
 
 \textit{\textbf{Example}: Kangaskhan only occurs in Australia. See lines 95 - 146 in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the notoriously rainy Norwegian city of Bergen. See lines 302 - 347 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The rain form of Castform has a higher frequency in the notoriously rainy Norwegian city of Bergen. See lines 299 - 344 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Logical premises
 }
@@ -393,7 +394,7 @@ Numerical values
 }
 The possible values that a character can have can take the form of a set of discrete states, such as ``present''/``absent'', or ``red''/``blue''. They may, however, also come in the form of numerical values, such as counts or measurements. In a key this can be implemented with a character of the type ``numerical''. Numerical characters specify a minimum and maximum that the value can have, a step size and its unit. Statements specifying values for numerical characters to taxa can define a range, or a single value. If more advanced metrics are needed for the key, such as a probability function over the numerical values for use in Bayesian analysis, this can be implemented through a call to an external service (see below).
 
-\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kilograms within a given range. A statement can then be included to register the possible weight range of a given taxon. See lines 249 - 261 (character) and lines 292 - 301 (statement) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The weight of a Pokémon varies, both between individuals within a species and between species. To distinguish Pokémon based on their weight, this is added as a numerical character, where weights can be specified in whole kilograms within a given range. A statement can then be included to register the possible weight range of a given taxon. See lines 249 - 258 (character) and lines 289 - 298 (statement) in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 External services
 }
@@ -401,28 +402,28 @@ Various units in a key may be subject to changes that are ideally managed outsid
 
 External services should not contain information critical to the workings of the key, as not every implementation can be expected to contain the necessary code to retrieve the information the service provides. External services are useful, however, for features steering presentation, and can provide complex information that depends on various user inputs and other contextual information. To sort taxa by probability, for example, an external service may provide probability scores for taxa based on the geographic location of the user, the season, and properties like coloration and size of the specimen. An interface that does not implement calling this service will simply not sort the taxa by probability, but will still be fully functional.
 
-\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See lines 435 - 439 (service) and lines 47 - 50 (externalResource) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: To allow for features such as the retrieval of the name of a Pokémon in different languages, one can use a Wikidata query. See lines 432 - 436 (service) and lines 47 - 50 (externalResource) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
-\textit{\textbf{Example}: A hypothetical API returns the probability for a provided taxon, given its location and size. See lines 440 - 446 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: A hypothetical API returns the probability for a provided taxon, given its location and size. See lines 437 - 443 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Required expertise
 }
 Some characters are harder to evaluate than others, and may even require special equipment. To warn and assist users, a key can contain userRequirements, describing such required skills or tools. These requirements can be connected to characters so that the user might filter out characters requiring skills or equipment they do not have, be presented with additional info to complete the task, or simply be warned.
 
-\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weights vary between types. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be ignored. One can also add a guide on how to catch a Pokémon in order to weigh it. See lines 249 - 261 (character) and lines 420 - 432 (userRequirement) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: the weight of a Pokémon can be a useful characteristic as their weights vary between types. One can only weigh a Pokémon once it has been caught, however. The user needs to be aware of this so that in situations where a Pokémon cannot be caught (e.g. when identifying from a picture or being out of Pokéballs) such questions can be ignored. One can also add a guide on how to catch a Pokémon in order to weigh it. See lines 249 - 258 (character) and lines 417 - 429 (userRequirement) in the \nameref{S2_Appendix} for the corresponding JSON.}
 
 \subsection*{
 Media elements
 }
 Illustrations greatly improve the usability and aesthetics of any key. Most entities in a Clavis key can contain a reference to an image; taxa, characters and states, but also persons, organizations, userRequirements, statements, etc. To facilitate this, Clavis defines mediaElements, containing one or more mediaFiles. These mediaFiles can contain and/or link to image, sound, or video files, using an array of mediaFiles to allow different sizes of the same file to be included.
 
-\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See lines 207 - 218 (states) and lines 449 - 498 (mediaElements) in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: The states in the tail character of Pikachu refer to images illustrating the different tail shapes. See lines 207 - 218 (states) and lines 446 - 496 (mediaElements) in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Descriptions
 }
 There are many aspects of an identification key where a more elaborate description is desirable or even required. To this end, many elements can have a short and/or extended description in valid markdown notation, as well as a url to an online description.
 
-\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See lines 425 - 431 in the \nameref{S2_Appendix} for the corresponding JSON.}
+\textit{\textbf{Example}: A description can be used to explain to the user how to catch a Pokémon where relevant, by including a short description and a link to a page with more information. See lines 422 - 429 in the \nameref{S2_Appendix} for the corresponding JSON.}
 \subsection*{
 Followup keys
 }
@@ -489,5 +490,15 @@ Supporting information
 {\bf Titmice key example.} A Clavis-compliant key to Norway's titmice (Paridae). Serves as a real life example of a fully functional and complete key, using only a selection of Clavis' capabilities.
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
 
 
