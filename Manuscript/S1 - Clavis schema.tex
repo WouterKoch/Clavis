@@ -70,7 +70,8 @@ used to distinguish taxa from each other.",
     "identifier",
     "taxa",
     "characters",
-    "statements"
+    "statements",
+    "persons"
   ],
   "properties": {
     "$schema": {
@@ -91,7 +92,8 @@ format of the key.",
       "$ref": "#/definitions/mediaID"
     },
     "description": {
-      "description": "Short description of the key (valid markdown).",
+      "description": "Short description of the key (valid
+markdown).",
       "comment": "Accepts array for multilingual support.",
       "$ref": "#/definitions/localizedString",
       "contentMediaType": "text/markdown"
@@ -127,7 +129,8 @@ key.",
       ]
     },
     "sourceUrl": {
-      "description": "Hyperlink to the source of the key (valid url).",
+      "description": "Hyperlink to the source of the key (valid
+url).",
       "comment": "Accepts array for multilingual support.",
       "$ref": "#/definitions/localizedUrl",
       "examples": [
@@ -135,8 +138,8 @@ key.",
       ]
     },
     "geography": {
-      "description": "The region for which the key is valid (e.g. covers
-all subtaxa), represented as a geography object.",
+      "description": "The region for which the key is valid (e.g.
+covers all subtaxa), represented as a geography object.",
       "$ref": "#/definitions/geography"
     },
     "primaryContact": {
@@ -230,8 +233,8 @@ localizedString and localizedUrl as arrays too.",
       ]
     },
     "created": {
-      "description": "The moment the key was made or first published, as
-'YYYY-MM-DD hh:mm:ss'.",
+      "description": "The moment the key was made or first published,
+as 'YYYY-MM-DD hh:mm:ss'.",
       "type": "string",
       "pattern": "^20\d\d-(0[1-9]|1[0-2])-([012]\d|3[01])
 ([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$",
@@ -255,8 +258,8 @@ version).",
       "type": "string"
     },
     "url": {
-      "description": "The url of where the key lives (to check for newer
-versions).",
+      "description": "The url of where the key lives (to check for
+newer versions).",
       "$ref": "#/definitions/url"
     },
     "externalServices": {
@@ -276,8 +279,8 @@ characters, so that the user can be warned, helped, etc.",
       }
     },
     "taxa": {
-      "description": "Taxa (e.g. species) the key can resolve to. Do not
-have to be exclusively taxonomic units.",
+      "description": "Taxa (e.g. species) the key can resolve to. Do
+not have to be exclusively taxonomic units.",
       "comment": "Taxa to which the key can resolve (either the taxa
 directly or their children).",
       "type": "array",
@@ -302,16 +305,16 @@ directly or their children).",
       }
     },
     "persons": {
-      "description": "Persons that are connected to (parts of) the key,
-such as creators.",
+      "description": "Persons that are connected to (parts of) the
+key, such as creators.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/person"
       }
     },
     "organizations": {
-      "description": "Organizations that are connected to (parts of) the
-key or persons, such as employers and publishers.",
+      "description": "Organizations that are connected to (parts of)
+the key or persons, such as employers and publishers.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/organization"
@@ -368,7 +371,8 @@ corresponding to the languages supported by the key.",
     "localizedMediaElement": {
       "type": "object",
       "description": "Language-dependent media element or object of
-media elements, corresponding to the languages supported by the key.",
+media elements, corresponding to the languages supported by the
+key.",
       "properties": {
         "id": {
           "description": "Internally unique id of the localized media
@@ -435,8 +439,8 @@ Lowercase alphanumeric and underscores are allowed.",
       "pattern": "^person:[a-z0-9_]+$"
     },
     "organizationID": {
-      "description": "String used as an internal ID for an organization.
-Lowercase alphanumeric and underscores are allowed.",
+      "description": "String used as an internal ID for an
+organization. Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^organization:[a-z0-9_]+$"
     },
@@ -459,8 +463,8 @@ requirement. Lowercase alphanumeric and underscores are allowed.",
       "pattern": "^requirement:[a-z0-9_]+$"
     },
     "mediaID": {
-      "description": "String used as an internal ID for a media element.
-Lowercase alphanumeric and underscores are allowed.",
+      "description": "String used as an internal ID for a media
+element. Lowercase alphanumeric and underscores are allowed.",
       "type": "string",
       "pattern": "^media:[a-z0-9_]+$"
     },
@@ -482,7 +486,8 @@ data URI scheme.",
           "oneOf": [
             {
               "type": "string",
-              "pattern": "^data:([a-z0-9/]+);base64,([a-zA-Z0-9+/=]+)$"
+              "pattern":
+"^data:([a-z0-9/]+);base64,([a-zA-Z0-9+/=]+)$"
             },
             {
               "type": "string",
@@ -491,8 +496,8 @@ data URI scheme.",
           ]
         },
         "width": {
-          "description": "The number of pixels horizontally (if a bitmap
-image or video).",
+          "description": "The number of pixels horizontally (if a
+bitmap image or video).",
           "type": "integer"
         },
         "height": {
@@ -567,8 +572,8 @@ file falls.",
       "additionalProperties": false
     },
     "mediaElement": {
-      "description": "A media element (collection of various formats of
-the same media object).",
+      "description": "A media element (collection of various formats
+of the same media object).",
       "type": "object",
       "properties": {
         "file": {
@@ -656,8 +661,8 @@ externalService.",
       "additionalProperties": false
     },
     "externalService": {
-      "description": "Service used by the key, for media files, taxonomy
-and/or nomenclature, species distributions, etc.",
+      "description": "Service used by the key, for media files,
+taxonomy and/or nomenclature, species distributions, etc.",
       "type": "object",
       "required": [
         "id"
@@ -807,8 +812,8 @@ requirements to the user (valid url).",
           "$ref": "#/definitions/localizedUrl"
         },
         "media": {
-          "description": "Media or illustration that informs the user on
-the requirements to the user.",
+          "description": "Media or illustration that informs the user
+on the requirements to the user.",
           "comment": "Accepts object for multilingual support.",
           "$ref": "#/definitions/mediaID"
         }
@@ -859,8 +864,8 @@ taxon.",
           ]
         },
         "placeholderName": {
-          "description": "Name that can be shown while fetching the name
-externally. Also useful for editing the key.",
+          "description": "Name that can be shown while fetching the
+name externally. Also useful for editing the key.",
           "comment": "Accepts object for multilingual support.",
           "$ref": "#/definitions/localizedString",
           "examples": [
@@ -936,8 +941,8 @@ the taxon.",
           ]
         },
         "isEndPoint": {
-          "description": "Whether the key should stop when this taxon is
-the only remaining possibility, even when it has multiple children
+          "description": "Whether the key should stop when this taxon
+is the only remaining possibility, even when it has multiple children
 remaining.",
           "comment": "Default is FALSE (if not specified). A taxon
 without children is alway an endpoint by definition, unless one of its
@@ -951,8 +956,9 @@ ancestors overrides this by being specified as an endpoint.",
           }
         },
         "externalReference": {
-          "description": "Reference to a taxon at one or more providers,
-each as an object with a provider id and a taxon id at that provider.",
+          "description": "Reference to a taxon at one or more
+providers, each as an object with a provider id and a taxon id at that
+provider.",
           "comment": "Accepts an array for multiple sources. Each
 element accepts an object for multilingual support.",
           "oneOf": [
@@ -984,10 +990,25 @@ represented as a geography object.",
     },
     "character": {
       "type": "object",
-      "required": [
-        "id",
-        "title",
-        "states"
+      "oneOf": [
+        {
+          "required": [
+            "id",
+            "title",
+            "states"
+          ]
+        },
+        {
+          "required": [
+            "id",
+            "title",
+            "type",
+            "min",
+            "max",
+            "stepSize",
+            "unit"
+          ]
+        }
       ],
       "properties": {
         "id": {
@@ -1003,8 +1024,8 @@ represented as a geography object.",
           ]
         },
         "media": {
-          "description": "The media element(s) of the character. Can be
-used to inform user of relevant structures etc.",
+          "description": "The media element(s) of the character. Can
+be used to inform user of relevant structures etc.",
           "oneOf": [
             {
               "$ref": "#/definitions/mediaID"
@@ -1060,11 +1081,37 @@ the key level.",
           "description": "Logical requirement that has to be fulfilled
 for this question to be asked.",
           "comment": "Has to refer to stateIds, that have to be fully
-true (either answered or all alternatives ruled out). Can use !, &&, ||,
-(, ), <, >, =.",
+true (either answered or all alternatives ruled out). Can use !, &&,
+||, (, ), <, >, =.",
           "type": "string",
           "pattern": "^(( && )|( \|\|
 )|(&&)|(\|\|)|[a-z0-9_:()!<>=])+$"
+        },
+        "min": {
+          "type": "number",
+          "description": "The minimum numerical value for the
+character."
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum numerical value for the
+character."
+        },
+        "stepSize": {
+          "type": "number",
+          "description": "The increments with which the numerical
+value of the character can be specified."
+        },
+        "unit": {
+          "description": "The unit of the numerical value.",
+          "$ref": "#/definitions/localizedString",
+          "examples": [
+            "mm",
+            "meters below the surface",
+            "spots",
+            "legs",
+            "kg"
+          ]
         },
         "states": {
           "oneOf": [
@@ -1085,22 +1132,9 @@ true (either answered or all alternatives ruled out). Can use !, &&, ||,
     "state": {
       "description": "The value a character can have.",
       "type": "object",
-      "oneOf": [
-        {
-          "required": [
-            "id",
-            "title"
-          ]
-        },
-        {
-          "required": [
-            "id",
-            "min",
-            "max",
-            "stepSize",
-            "unit"
-          ]
-        }
+      "required": [
+        "id",
+        "title"
       ],
       "properties": {
         "id": {
@@ -1114,7 +1148,8 @@ Accepts object for multilingual support.",
           "$ref": "#/definitions/localizedString"
         },
         "media": {
-          "description": "Media element(s) that illustrate the state.",
+          "description": "Media element(s) that illustrate the
+state.",
           "oneOf": [
             {
               "$ref": "#/definitions/mediaID"
@@ -1146,45 +1181,13 @@ supplements the description (valid markdown).",
 the state.",
           "comment": "Accepts object for multilingual support.",
           "$ref": "#/definitions/localizedUrl"
-        },
-        "min": {
-          "description": "Lowest numerical value of the state (over all
-taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "max": {
-          "description": "Highest possible numerical value of the state
-(over all taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "stepSize": {
-          "description": "Step size of the state (steps between min and
-max, over all taxa).",
-          "comment": "Only to be used for numerical characters",
-          "type": "number"
-        },
-        "unit": {
-          "description": "Unit in which the state is measured or
-counted.",
-          "comment": "Only to be used for numerical characters. Accepts
-object for multilingual support.",
-          "$ref": "#/definitions/localizedString",
-          "examples": [
-            "mm",
-            "meters below the surface",
-            "spots",
-            "legs",
-            "kg"
-          ]
         }
       },
       "additionalProperties": false
     },
     "statement": {
-      "description": "A fact connecting a taxon and a character through
-a certain value.",
+      "description": "A fact connecting a taxon and a character
+through a certain value.",
       "type": "object",
       "required": [
         "id",
@@ -1209,8 +1212,8 @@ about.",
         },
         "value": {
           "description": "A value for this character for this taxon.
-Must be either the id of a state, or an array of floats [min, max] for a
-numerical range.",
+Must be either the id of a state, or an array of floats [min, max] for
+a numerical range.",
           "oneOf": [
             {
               "$ref": "#/definitions/stateID"
@@ -1260,8 +1263,8 @@ property (valid markdown).",
           "contentMediaType": "text/markdown"
         },
         "descriptionDetails": {
-          "description": "Extended description of the taxon having this
-property that supplements the description (valid markdown).",
+          "description": "Extended description of the taxon having
+this property that supplements the description (valid markdown).",
           "comment": "Accepts array for multilingual support.",
           "$ref": "#/definitions/localizedString",
           "contentMediaType": "text/markdown"
